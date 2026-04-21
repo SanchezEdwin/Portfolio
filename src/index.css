@@ -1,0 +1,131 @@
+:root {
+  --pipboy-green: #14fdce;
+  --pipboy-green-glow: rgba(20, 253, 206, 0.5);
+  --pipboy-bg: #0d1a12;
+  --pipboy-dark: #000000;
+  --scanline-color: rgba(0, 255, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--pipboy-dark);
+  color: var(--pipboy-green);
+  font-family: 'VT323', monospace;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  text-shadow: 0 0 5px var(--pipboy-green-glow);
+  -webkit-font-smoothing: none;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* CRT Effects Overlay */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 3px 100%;
+}
+
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0% { opacity: 0.95; }
+  5% { opacity: 0.85; }
+  10% { opacity: 0.95; }
+  15% { opacity: 1; }
+  50% { opacity: 0.98; }
+  55% { opacity: 0.95; }
+  60% { opacity: 1; }
+  100% { opacity: 0.99; }
+}
+
+.flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pipboy-bg);
+  border-left: 2px solid var(--pipboy-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pipboy-green);
+  border: 2px solid var(--pipboy-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1fffdf;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
