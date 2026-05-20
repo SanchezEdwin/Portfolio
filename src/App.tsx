@@ -7,6 +7,7 @@ import InvPage from './components/InvPage';
 import DataPage from './components/DataPage';
 import MapPage from './components/MapPage';
 import RadioPage from './components/RadioPage';
+import { playTabSound } from './utils';
 
 type Tab = 'STAT' | 'INV' | 'DATA' | 'MAP' | 'RADIO';
 
@@ -45,7 +46,10 @@ function App() {
             <button
               key={tab}
               className={`nav-button ${activeTab === tab ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                playTabSound();
+                setActiveTab(tab);
+              }}
             >
               {tab}
             </button>

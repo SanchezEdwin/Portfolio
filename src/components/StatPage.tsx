@@ -1,25 +1,31 @@
 import { useState } from 'react';
 import './components.css';
 import vaultBoyImg from '../assets/vault_boy.png';
+import { playTabSound } from '../utils';
 
 export default function StatPage() {
   const [subTab, setSubTab] = useState('STATUS');
 
+  const handleTabClick = (tab: string) => {
+    playTabSound();
+    setSubTab(tab);
+  };
+
   return (
     <div className="page-container">
       <div className="sub-nav">
-        <button className={`sub-nav-btn ${subTab === 'STATUS' ? 'active' : ''}`} onClick={() => setSubTab('STATUS')}>STATUS</button>
-        <button className={`sub-nav-btn ${subTab === 'SPECIAL' ? 'active' : ''}`} onClick={() => setSubTab('SPECIAL')}>S.P.E.C.I.A.L.</button>
-        <button className={`sub-nav-btn ${subTab === 'PERKS' ? 'active' : ''}`} onClick={() => setSubTab('PERKS')}>PERKS</button>
+        <button className={`sub-nav-btn ${subTab === 'STATUS' ? 'active' : ''}`} onClick={() => handleTabClick('STATUS')}>STATUS</button>
+        <button className={`sub-nav-btn ${subTab === 'SPECIAL' ? 'active' : ''}`} onClick={() => handleTabClick('SPECIAL')}>S.P.E.C.I.A.L.</button>
+        <button className={`sub-nav-btn ${subTab === 'PERKS' ? 'active' : ''}`} onClick={() => handleTabClick('PERKS')}>PERKS</button>
       </div>
 
       {subTab === 'STATUS' && (
         <div className="stat-layout">
           <div className="stat-left">
-            <div className="vault-boy-container">
+            <div className="vault-boy-container" >
               <img src={vaultBoyImg} alt="Vault Boy" className="vault-boy-img" />
             </div>
-            <h2>INGENIERO EN SISTEMAS COMPUTACIONALES</h2>
+            <h2 style={{ marginTop: '15px' }}>INGENIERO EN SISTEMAS COMPUTACIONALES</h2>
           </div>
           <div className="stat-right">
             <div className="stat-bar-container">
@@ -30,12 +36,12 @@ export default function StatPage() {
             <div className="stat-bar-container">
               <span className="stat-label">AP</span>
               <div className="stat-bar-bg"><div className="stat-bar-fill" style={{ width: '93%' }}></div></div>
-              <span>93/93</span>
+              <span>093/100</span>
             </div>
             <div className="stat-bar-container">
               <span className="stat-label">XP</span>
               <div className="stat-bar-bg"><div className="stat-bar-fill" style={{ width: '93.7%' }}></div></div>
-              <span>9370/10000</span>
+              <span>097/100</span>
             </div>
             <div style={{ marginTop: '2rem' }}>
               <p>CONDICIÓN: Listo para Implementar</p>
@@ -54,7 +60,7 @@ export default function StatPage() {
              </p>
            </div>
            <div className="stat-right">
-              <div className="special-list">
+              <div className="special-list" >
                 <div className="special-item"><span>Strength (Cableado estructurado)</span> <span>8</span></div>
                 <div className="special-item"><span>Perception (Mejora de procesos)</span> <span>8</span></div>
                 <div className="special-item"><span>Endurance (Trabajo bajo presión)</span> <span>8</span></div>
@@ -68,9 +74,9 @@ export default function StatPage() {
       )}
 
       {subTab === 'PERKS' && (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           <h2>PROYECTOS ACTIVOS (PERKS)</h2>
-          <div className="quest-list" style={{ marginTop: '1rem', maxHeight: '350px', overflowY: 'auto', paddingRight: '5px' }}>
+          <div className="quest-list" style={{ marginTop: '1rem', flex: 1, overflowY: 'auto', paddingRight: '5px' }}>
             <div className="quest-item" style={{ borderColor: 'var(--pipboy-green)' }}>
               <div className="quest-title">"Order Control" (Trazabilidad de Manufactura)</div>
               <div className="quest-desc">

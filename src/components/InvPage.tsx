@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './components.css';
+import { playTabSound } from '../utils';
 
 type Item = { name: string; weight: number; val: number; desc: string; dmg?: string; def?: string };
 
@@ -25,13 +26,19 @@ export default function InvPage() {
   const [subTab, setSubTab] = useState('WEAPONS');
   const [activeItem, setActiveItem] = useState<Item | null>(INVENTORY['WEAPONS'][0]);
 
+  const handleTabClick = (tab: string) => {
+    playTabSound();
+    setSubTab(tab);
+    setActiveItem(INVENTORY[tab][0]);
+  };
+
   const items = INVENTORY[subTab] || [];
 
   return (
     <div className="page-container">
       <div className="sub-nav">
-        <button className={`sub-nav-btn ${subTab === 'WEAPONS' ? 'active' : ''}`} onClick={() => { setSubTab('WEAPONS'); setActiveItem(INVENTORY['WEAPONS'][0]); }}>WEAPONS (SYS & NET)</button>
-        <button className={`sub-nav-btn ${subTab === 'APPAREL' ? 'active' : ''}`} onClick={() => { setSubTab('APPAREL'); setActiveItem(INVENTORY['APPAREL'][0]); }}>APPAREL (DEV & DATA)</button>
+        <button className={`sub-nav-btn ${subTab === 'WEAPONS' ? 'active' : ''}`} onClick={() => handleTabClick('WEAPONS')}>WEAPONS (SYS & NET)</button>
+        <button className={`sub-nav-btn ${subTab === 'APPAREL' ? 'active' : ''}`} onClick={() => handleTabClick('APPAREL')}>APPAREL (DEV & DATA)</button>
       </div>
 
       <div className="inv-layout">
