@@ -161,6 +161,19 @@
     linear-gradient(rgba(20, 253, 206, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(20, 253, 206, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
+  overflow: hidden;
+}
+
+.map-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.35;
+  z-index: 1;
+  filter: sepia(100%) hue-rotate(80deg) saturate(600%) brightness(0.85) contrast(1.8);
 }
 
 .map-marker {

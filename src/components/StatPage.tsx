@@ -29,16 +29,16 @@ export default function StatPage() {
             </div>
             <div className="stat-bar-container">
               <span className="stat-label">AP</span>
-              <div className="stat-bar-bg"><div className="stat-bar-fill" style={{ width: '90%' }}></div></div>
-              <span>90/100</span>
+              <div className="stat-bar-bg"><div className="stat-bar-fill" style={{ width: '93%' }}></div></div>
+              <span>93/93</span>
             </div>
             <div className="stat-bar-container">
               <span className="stat-label">XP</span>
-              <div className="stat-bar-bg"><div className="stat-bar-fill" style={{ width: '75%' }}></div></div>
-              <span>7500</span>
+              <div className="stat-bar-bg"><div className="stat-bar-fill" style={{ width: '93.7%' }}></div></div>
+              <span>9370/10000</span>
             </div>
             <div style={{ marginTop: '2rem' }}>
-              <p>CONDICIÓN: Óptima</p>
+              <p>CONDICIÓN: Listo para Implementar</p>
               <p>NIVEL DE CAFEÍNA: Estable</p>
             </div>
           </div>
@@ -48,9 +48,9 @@ export default function StatPage() {
       {subTab === 'SPECIAL' && (
         <div className="stat-layout">
            <div className="stat-left">
-             <h2>Atributos Base</h2>
+             <h2>Habilidades Core</h2>
              <p style={{marginTop: '1rem', textAlign: 'center', opacity: 0.8}}>
-               Define tus capacidades fundamentales.
+               Atributos base del sistema de Edwin Sánchez.
              </p>
            </div>
            <div className="stat-right">
@@ -69,19 +69,35 @@ export default function StatPage() {
 
       {subTab === 'PERKS' && (
         <div>
-          <h2>Habilidades Especiales</h2>
-          <div className="quest-list" style={{ marginTop: '1rem' }}>
+          <h2>PROYECTOS ACTIVOS (PERKS)</h2>
+          <div className="quest-list" style={{ marginTop: '1rem', maxHeight: '350px', overflowY: 'auto', paddingRight: '5px' }}>
             <div className="quest-item" style={{ borderColor: 'var(--pipboy-green)' }}>
-              <div className="quest-title">"Apaga y Enciende" (Soporte Táctico)</div>
-              <div className="quest-desc">Soluciona el 50% de los problemas de software con un simple reinicio. Otorga +3 en Carisma al tranquilizar a los usuarios.</div>
+              <div className="quest-title">"Order Control" (Trazabilidad de Manufactura)</div>
+              <div className="quest-desc">
+                Desarrollo de un sistema integral de trazabilidad física y de procesos en planta. Calcula eficiencia de operadores e integra bases de datos para reportes interdepartamentales.
+                <br/><strong style={{color: '#fff'}}>REQ: Python, PyQt6, Pandas, MySQL</strong>
+              </div>
             </div>
             <div className="quest-item" style={{ borderColor: 'var(--pipboy-green)' }}>
-              <div className="quest-title">"Maestro de la Consola"</div>
-              <div className="quest-desc">Experto en automatización del Yermo. Scripts en PowerShell y Batch ejecutan tareas aburridas en segundo plano.</div>
+              <div className="quest-title">"Import-Export" (Reconciliación SAT)</div>
+              <div className="quest-desc">
+                Herramienta de conciliación automática con tolerancia de discrepancias y validaciones del SAT. Reduce el tiempo del proceso manual a la mitad.
+                <br/><strong style={{color: '#fff'}}>REQ: Python, PyQt6, NumPy, Pandas</strong>
+              </div>
             </div>
             <div className="quest-item" style={{ borderColor: 'var(--pipboy-green)' }}>
-              <div className="quest-title">"Visión Estructural"</div>
-              <div className="quest-desc">Dominio del cableado y redes. Capacidad de crimpar cables RJ45 en la oscuridad y detectar cuellos de botella a simple vista.</div>
+              <div className="quest-title">"THREAD" (Control de Inventarios)</div>
+              <div className="quest-desc">
+                Aplicación móvil corporativa para la localización y conteo de insumos de bordado. Reduce demoras de búsqueda de hasta 30 minutos a segundos.
+                <br/><strong style={{color: '#fff'}}>REQ: PowerApps, SharePoint Lists</strong>
+              </div>
+            </div>
+            <div className="quest-item" style={{ borderColor: 'var(--pipboy-green)' }}>
+              <div className="quest-title">"EMMA" (Métricas de Eficiencia & Downtime)</div>
+              <div className="quest-desc">
+                Mapeo de tiempos productivos y paros de máquinas en tiempo real. Traduce registros en análisis visuales para mitigar causas raíz de cuellos de botella.
+                <br/><strong style={{color: '#fff'}}>REQ: MS Access, VBA, SQL</strong>
+              </div>
             </div>
           </div>
         </div>

@@ -46,6 +46,17 @@ export default function RadioPage() {
         >
           <span>►</span> Frecuencia LinkedIn (Red Profesional)
         </a>
+
+        <a 
+          href="https://edwin-sanchez-portfolio.netlify.app" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="radio-station" 
+          onClick={() => toggleStation('Netlify')}
+          style={{ backgroundColor: activeStation === 'Netlify' ? 'var(--pipboy-green)' : '', color: activeStation === 'Netlify' ? 'var(--pipboy-dark)' : '' }}
+        >
+          <span>►</span> Frecuencia Netlify (Estación de Transmisión Web)
+        </a>
       </div>
 
       <div style={{ marginTop: '3rem', textAlign: 'center', opacity: 0.8 }}>

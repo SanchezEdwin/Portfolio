@@ -5,22 +5,19 @@ type Item = { name: string; weight: number; val: number; desc: string; dmg?: str
 
 const INVENTORY: Record<string, Item[]> = {
   WEAPONS: [
-    { name: 'C#', weight: 1.5, val: 350, dmg: '95', desc: 'Arma pesada de alto rendimiento. Excelente para back-end y aplicaciones robustas.' },
-    { name: 'C++', weight: 2.0, val: 400, dmg: '120', desc: 'Requiere gran habilidad, pero otorga control total sobre la memoria. Daño letal.' },
-    { name: 'Python', weight: 0.8, val: 250, dmg: '85', desc: 'Rápida, versátil y letal en scripts y análisis de datos.' },
-    { name: 'React', weight: 1.2, val: 300, dmg: '80', desc: 'Lanzador de componentes de alta cadencia para interfaces de usuario.' },
-    { name: 'Batch', weight: 0.5, val: 50, dmg: '40', desc: 'Arma clásica de la vieja escuela para automatización en entornos Windows.' },
-    { name: 'Powershell', weight: 1.0, val: 150, dmg: '75', desc: 'El rifle de francotirador de la administración de sistemas de Windows.' }
+    { name: 'Windows Server Support', weight: 2.5, val: 450, dmg: '90', desc: 'Mantenimiento de infraestructura de servidores principales, soporte a Active Directory, perfiles de usuario y esquemas de respaldo/recuperación.' },
+    { name: 'Active Directory', weight: 1.5, val: 380, dmg: '85', desc: 'Gestión centralizada de identidades de red, control de accesos, políticas de grupo y auditoría de permisos corporativos.' },
+    { name: 'LAN / Wi-Fi Troubleshooting', weight: 2.0, val: 350, dmg: '80', desc: 'Diagnóstico y resolución de fallas en redes de datos, incluyendo switches, direccionamiento IP (DHCP/DNS), VLANs y cableado estructurado.' },
+    { name: 'CCTV Surveillance', weight: 3.0, val: 280, dmg: '75', desc: 'Instalación, configuración y mantenimiento de sistemas de seguridad analógicos e IP (DVR/NVR), cableado y almacenamiento.' },
+    { name: 'Endpoint Configuration', weight: 1.8, val: 220, dmg: '70', desc: 'Preparación, configuración, clonación (SCCM/Imaging) y puesta en marcha de estaciones de trabajo Windows administrativas y operativas.' }
   ],
   APPAREL: [
-    { name: 'MySQL', weight: 1.5, val: 200, def: '60', desc: 'Almacén seguro relacional. Protege tus datos como una armadura de combate.' },
-    { name: 'SQL', weight: 1.0, val: 180, def: '50', desc: 'El lenguaje fundamental para consultar las bases de datos del Yermo.' },
-    { name: 'Linux', weight: 2.0, val: 500, def: '90', desc: 'Sistema operativo resistente a la radiación. Altísima defensa si sabes configurarlo.' },
-    { name: 'Git', weight: 0.5, val: 250, def: '99', desc: 'Seguro de vida contra código roto. Permite viajes en el tiempo (revert).' }
-  ],
-  MISC: [
-    { name: 'Order Control', weight: 2.5, val: 1500, desc: 'Sistema integral desarrollado para gestión y control.' },
-    { name: 'P1fiabook', weight: 1.8, val: 1200, desc: 'Proyecto clave en el inventario. Gran impacto y utilidad.' }
+    { name: 'Python', weight: 0.5, val: 500, def: '95', desc: 'Habilidad principal de automatización. Procesamiento de datos (Pandas/NumPy), desarrollo de interfaces de usuario (PyQt6) y scripts utilitarios.' },
+    { name: 'C# / C++ / C', weight: 2.0, val: 450, def: '90', desc: 'Dominio de lenguajes compilados orientados a objetos y estructuras de datos lógicas de nivel medio-bajo.' },
+    { name: 'PowerShell & Batch', weight: 0.3, val: 250, def: '85', desc: 'Scripts para automatización de endpoints de usuario, configuración de dominio y despliegues rápidos en Windows.' },
+    { name: 'SQL (MySQL/SQL Server/SQLite/Oracle)', weight: 1.5, val: 420, def: '90', desc: 'Modelado relacional, consultas avanzadas, automatización de disparadores y administración segura de datos.' },
+    { name: 'PowerApps & SharePoint', weight: 1.0, val: 350, def: '80', desc: 'Construcción ágil de aplicaciones corporativas de inventario y listas dinámicas de SharePoint.' },
+    { name: 'VBA & MS Access', weight: 1.2, val: 300, def: '75', desc: 'Desarrollo de bases de datos locales rápidas y automatizaciones para eficiencias en herramientas heredadas.' }
   ]
 };
 
@@ -33,9 +30,8 @@ export default function InvPage() {
   return (
     <div className="page-container">
       <div className="sub-nav">
-        <button className={`sub-nav-btn ${subTab === 'WEAPONS' ? 'active' : ''}`} onClick={() => { setSubTab('WEAPONS'); setActiveItem(INVENTORY['WEAPONS'][0]); }}>WEAPONS</button>
-        <button className={`sub-nav-btn ${subTab === 'APPAREL' ? 'active' : ''}`} onClick={() => { setSubTab('APPAREL'); setActiveItem(INVENTORY['APPAREL'][0]); }}>APPAREL</button>
-        <button className={`sub-nav-btn ${subTab === 'MISC' ? 'active' : ''}`} onClick={() => { setSubTab('MISC'); setActiveItem(INVENTORY['MISC'][0]); }}>MISC</button>
+        <button className={`sub-nav-btn ${subTab === 'WEAPONS' ? 'active' : ''}`} onClick={() => { setSubTab('WEAPONS'); setActiveItem(INVENTORY['WEAPONS'][0]); }}>WEAPONS (SYS & NET)</button>
+        <button className={`sub-nav-btn ${subTab === 'APPAREL' ? 'active' : ''}`} onClick={() => { setSubTab('APPAREL'); setActiveItem(INVENTORY['APPAREL'][0]); }}>APPAREL (DEV & DATA)</button>
       </div>
 
       <div className="inv-layout">
