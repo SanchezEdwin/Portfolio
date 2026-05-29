@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 2rem 3rem;
+  height: 100dvh;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 3vw, 2rem) clamp(1rem, 4vw, 3rem);
   position: relative;
   z-index: 10;
+  overflow: hidden;
 }
 
 /* Header */
@@ -12,42 +16,53 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 1rem;
   border-bottom: 3px solid var(--pipboy-green);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .pip-header h1 {
-  font-size: 2.5rem;
-  letter-spacing: 2px;
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
+  letter-spacing: clamp(1px, 0.35vw, 2px);
+  line-height: 0.95;
 }
 
 .pip-header .level-info {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  white-space: nowrap;
 }
 
 /* Content Area */
 .pip-content {
-  flex: 1;
+  flex: 1 1 auto;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   padding: 1rem 0;
+  min-height: 0;
 }
 
 /* Navigation Tabs */
 .pip-nav {
   display: flex;
   justify-content: space-between;
+  gap: clamp(0.35rem, 2vw, 1rem);
   border-top: 3px solid var(--pipboy-green);
   padding-top: 1rem;
   margin-top: 1rem;
+  flex-shrink: 0;
 }
 
 .nav-button {
-  font-size: 1.8rem;
-  padding: 0.5rem 1rem;
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: clamp(1.15rem, 4vw, 1.8rem);
+  padding: 0.5rem clamp(0.35rem, 2vw, 1rem);
   transition: all 0.2s;
   border: 2px solid transparent;
+  text-align: center;
 }
 
 .nav-button:hover {
@@ -64,13 +79,15 @@
 /* Sub Navigation */
 .sub-nav {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 3vw, 2rem);
+  margin-bottom: clamp(0.75rem, 3vw, 1.5rem);
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .sub-nav-btn {
-  font-size: 1.5rem;
+  font-size: clamp(1.05rem, 4vw, 1.5rem);
   opacity: 0.6;
   position: relative;
 }
@@ -94,7 +111,7 @@
 }
 
 /* General Utilities */
-.flex-row { display: flex; gap: 1rem; }
+.flex-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 .flex-col { display: flex; flex-direction: column; gap: 1rem; }
 .scan-line-anim {
   width: 100%;
@@ -109,4 +126,108 @@
 @keyframes scan {
   0% { top: -10%; }
   100% { top: 110%; }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: 0.75rem;
+  }
+
+  .pip-header {
+    align-items: flex-start;
+    margin-bottom: 0.65rem;
+  }
+
+  .pip-content {
+    padding: 0.65rem 0;
+  }
+
+  .pip-nav {
+    gap: 0.25rem;
+    padding-top: 0.65rem;
+    margin-top: 0.65rem;
+  }
+
+  .nav-button {
+    border-width: 1px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .app-container {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .pip-header {
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .pip-header h1 {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .pip-content {
+    padding: 0.35rem 0;
+  }
+
+  .pip-nav {
+    padding-top: 0.35rem;
+    margin-top: 0.35rem;
+  }
+
+  .nav-button {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    padding: 0.25rem 0.5rem;
+  }
+
+  .sub-nav {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.header-compact {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    width: 100%;
+    padding: 0.6rem 0.7rem max(0.6rem, env(safe-area-inset-bottom));
+  }
+
+  .pip-header {
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .header-full {
+    display: none;
+  }
+
+  .header-compact {
+    display: inline;
+  }
+
+  .pip-header h1 {
+    font-size: clamp(1.6rem, 9vw, 2.25rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .pip-header .level-info {
+    font-size: clamp(1.15rem, 6vw, 1.5rem);
+  }
+
+  .pip-content {
+    padding: 0.4rem 0;
+  }
+
+  .pip-nav {
+    position: sticky;
+    bottom: 0;
+    background: var(--pipboy-dark);
+  }
 }

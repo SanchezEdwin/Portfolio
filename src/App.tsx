@@ -33,7 +33,10 @@ function App() {
       <div className="app-container">
         
         <header className="pip-header">
-          <h1>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</h1>
+          <h1>
+            <span className="header-full">ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</span>
+            <span className="header-compact">ROBCO U.O.S.</span>
+          </h1>
           <div className="level-info">LVL 24</div>
         </header>
 

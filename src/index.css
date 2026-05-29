@@ -10,6 +10,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html {
+  height: 100%;
+  background-color: var(--pipboy-dark);
 }
 
 body {
@@ -18,15 +26,18 @@ body {
   background-color: var(--pipboy-dark);
   color: var(--pipboy-green);
   font-family: 'VT323', monospace;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
   overflow: hidden;
   text-shadow: 0 0 5px var(--pipboy-green-glow);
   -webkit-font-smoothing: none;
+  touch-action: manipulation;
 }
 
 #root {
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
 }
 

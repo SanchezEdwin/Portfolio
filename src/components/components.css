@@ -254,3 +254,242 @@
   background-color: #000 !important;
   border: 1px solid var(--pipboy-green) !important;
 }
+
+/* CONTACT ACTIONS */
+.contact-panel {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: clamp(1rem, 4vw, 2rem);
+  text-align: center;
+  font-size: clamp(1.05rem, 3vw, 1.4rem);
+}
+
+.contact-copy {
+  border: 1px solid rgba(20, 253, 206, 0.55);
+  padding: 0.7rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  min-height: 44px;
+  word-break: break-word;
+}
+
+.contact-copy:hover,
+.contact-copy:focus-visible {
+  background-color: var(--pipboy-green);
+  color: var(--pipboy-dark);
+  box-shadow: 0 0 10px var(--pipboy-green-glow);
+}
+
+.copy-hint {
+  border: 1px solid currentColor;
+  font-size: 0.8em;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .page-container {
+    min-height: 100%;
+  }
+
+  .stat-layout,
+  .inv-layout {
+    gap: 1rem;
+  }
+
+  .vault-boy-container {
+    width: min(42vw, 330px);
+    height: min(42vw, 330px);
+  }
+}
+
+@media (max-width: 700px) {
+  .page-container {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .stat-layout,
+  .inv-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .stat-left,
+  .stat-right,
+  .inv-list,
+  .inv-details {
+    flex: none;
+    width: 100%;
+  }
+
+  .stat-left {
+    justify-content: flex-start;
+  }
+
+  .vault-boy-container {
+    width: min(68vw, 280px);
+    height: min(68vw, 280px);
+  }
+
+  .stat-bar-container,
+  .special-item,
+  .inv-item,
+  .radio-station {
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
+  }
+
+  .stat-label {
+    width: 42px;
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
+  }
+
+  .special-item {
+    gap: 0.75rem;
+  }
+
+  .inv-list {
+    border-right: 0;
+    border-bottom: 2px solid var(--pipboy-green);
+    padding-right: 0;
+    padding-bottom: 0.75rem;
+    max-height: 34vh;
+  }
+
+  .inv-details {
+    padding: 0.75rem 0;
+  }
+
+  .quest-title,
+  .inv-details h2 {
+    font-size: clamp(1.35rem, 6vw, 1.8rem);
+  }
+
+  .quest-desc,
+  .inv-details p {
+    font-size: clamp(1rem, 4.5vw, 1.2rem) !important;
+  }
+
+  .map-container,
+  .pip-map-container {
+    height: min(50vh, 360px);
+    min-height: 240px;
+  }
+
+  .radio-list {
+    max-width: 100%;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .page-container {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .stat-layout,
+  .inv-layout {
+    gap: 0.75rem;
+    min-height: 0;
+  }
+
+  .stat-left,
+  .stat-right,
+  .inv-details {
+    padding: 0.5rem;
+  }
+
+  .vault-boy-container {
+    width: min(24vw, 180px);
+    height: min(24vw, 180px);
+  }
+
+  .stat-right {
+    gap: 0.65rem;
+  }
+
+  .stat-bar-container,
+  .special-item,
+  .inv-item,
+  .radio-station,
+  .quest-desc {
+    font-size: 1rem !important;
+  }
+
+  .quest-title,
+  .inv-details h2 {
+    font-size: 1.25rem;
+  }
+
+  .map-container,
+  .pip-map-container {
+    height: min(48vh, 220px);
+  }
+
+  .contact-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.75rem;
+  }
+
+  .contact-copy {
+    padding: 0.45rem;
+  }
+
+  .radio-list {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sub-nav {
+    gap: 0.75rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .sub-nav-btn {
+    font-size: clamp(0.95rem, 5vw, 1.25rem);
+  }
+
+  .stat-layout {
+    gap: 0.7rem;
+  }
+
+  .stat-left {
+    padding: 0.55rem;
+    overflow: hidden;
+  }
+
+  .vault-boy-container {
+    width: min(58vw, 220px);
+    height: min(58vw, 220px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .vault-boy-img {
+    object-fit: contain;
+    object-position: center;
+    max-width: 100%;
+  }
+
+  .stat-left h2 {
+    max-width: 100%;
+    margin-top: 0.6rem !important;
+    font-size: clamp(1rem, 5.2vw, 1.35rem);
+    line-height: 1.05;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .stat-right {
+    gap: 0.75rem;
+  }
+
+  .pip-map-container {
+    min-height: 210px;
+  }
+}
