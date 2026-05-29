@@ -35,6 +35,27 @@ export default function MapPage() {
   const currentCoords = subTab === 'LOCAL MAP' ? localCoords : worldCoords;
   const currentZoom = subTab === 'LOCAL MAP' ? 16 : 11;
 
+  const copyContact = async (label: string, value: string) => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = value;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      window.alert(`${label} copiado al portapapeles.`);
+    } catch {
+      window.alert(`No se pudo copiar ${label.toLowerCase()}.`);
+    }
+  };
+
   return (
     <div className="page-container">
       <div className="sub-nav">
@@ -73,9 +94,23 @@ export default function MapPage() {
         </MapContainer>
       </div>
 
-      <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '1.4rem' }}>
-        <p> <strong>Frecuencia de Contacto:</strong> +52 899-418-3998</p>
-        <p> <strong>Enlace de Datos:</strong> sanchezescandonedwin@gmail.com</p>
+      <div className="contact-panel" aria-label="Datos de contacto copiables">
+        <button
+          type="button"
+          className="contact-copy"
+          onClick={() => copyContact('Frecuencia de Contacto', '+52 899-418-3998')}
+        >
+          <strong>Frecuencia de Contacto:</strong> +52 899-418-3998
+          <span className="copy-hint">COPIAR</span>
+        </button>
+        <button
+          type="button"
+          className="contact-copy"
+          onClick={() => copyContact('Enlace de Datos', 'sanchezescandonedwin@gmail.com')}
+        >
+          <strong>Enlace de Datos:</strong> sanchezescandonedwin@gmail.com
+          <span className="copy-hint">COPIAR</span>
+        </button>
       </div>
     </div>
   );
